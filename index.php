@@ -25,5 +25,28 @@ $f3 -> route('GET /', function() {
     }
 );
 
+// Create a profile Pages
+
+// Personal Information
+$f3 -> route("GET /personalInfo", function () {
+    //display the summary page
+    $view = new Template();
+    echo $view->render('views/personalinfo.html');
+});
+
+// Profile
+$f3 -> route("GET /profile", function () {
+    //display the summary page
+    $view = new Template();
+    echo $view->render('views/profile.html');
+});
+
+// Interests
+$f3 -> route("GET /interests", function () {
+    //display the summary page
+    $view = new Template();
+    echo $view->render('views/interests.html');
+});
+
 //Run fat free
 $f3->run();
