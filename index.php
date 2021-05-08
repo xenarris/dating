@@ -29,23 +29,30 @@ $f3 -> route('GET /', function() {
 
 // Personal Information
 $f3 -> route("GET /personalInfo", function () {
-    //display the summary page
+    //display the personal information  page
     $view = new Template();
     echo $view->render('views/personalinfo.html');
 });
 
 // Profile
 $f3 -> route("GET /profile", function () {
-    //display the summary page
+    //display the profile page
     $view = new Template();
     echo $view->render('views/profile.html');
 });
 
 // Interests
 $f3 -> route("GET /interests", function () {
-    //display the summary page
+    //display the interests page
     $view = new Template();
     echo $view->render('views/interests.html');
+});
+
+// Profile summary
+$f3 -> route("GET /profileSummary", function () {
+    //display the summary page
+    $view = new Template();
+    echo $view->render('views/profilesummary.html');
 });
 
 //Run fat free
