@@ -6,17 +6,66 @@ May 8, 2021
 This screen gathers name, age, gender & phone number.
 -->
 
-<include href="views/header.html" />
+<include href="views/header.html"/>
 
 <body>
 
 <!-- Navbar -->
-<include href="views/navbar.html" />
+<include href="views/navbar.html"/>
 
 <br>
 
 <!-- Content -->
 
+<div class="border rounded container">
+    <h1><strong>Personal Information</strong></h1>
+    <hr>
+
+
+    <!-- Personal Info -->
+    <div class="row">
+        <div class="col-sm-8">
+            <form action="#" method="post" class="form-horizontal">
+                <label for="fname" class="control-label"><strong>First Name</strong></label>
+                <input class="form-control" type="text" name="fname" id="fname">
+                <br>
+                <label for="lname" class="control-label"><strong>Last Name</strong></label>
+                <input class="form-control" type="text" name="lname" id="lname">
+                <br>
+                <label for="age" class="control-label"><strong>Age</strong></label>
+                <input class="form-control" type="text" name="age" id="age">
+                <br>
+                <label class="control-label"><strong>Gender</strong></label>
+                <br>
+                <label><input type="radio" name="gender" id="male" value="male"> Male</input></label>
+                <label><input type="radio" name="gender" id="female" value="female"> Female</input></label><br>
+                <br>
+                <label for="phone" class="control-label"><strong>Phone Number</strong></label>
+                <input class="form-control" type="text" name="phone" id="phone">
+            </form>
+        </div>
+
+        <div class="col-sm-4" role="alert">
+            <br>
+            <p class="text-center alert alert-secondary">
+                <Strong>Note:</Strong> All information entered is protected by our <a href="#">privacy policy</a>. Profile
+                information can only be viewed by others with your permission.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-end">
+        <!-- next button -->
+        <div class="text-end m-2 py-2">
+            <a href="personalinfo"><button type="submit" class="btn btn-primary">Next></button></a>
+        </div>
+
+    </div>
+
+
+
+</div>
 
 </body>
 </html>
