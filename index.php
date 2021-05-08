@@ -31,7 +31,20 @@ $f3 -> route('GET /', function() {
 // Create a profile Pages
 
 // Personal Information
-$f3 -> route("GET /personalInfo", function () {
+$f3 -> route("GET|POST /personalInfo", function () {
+    //If the form has been submitted, add the data to session
+    // and send the user to the next order form
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //var_dump($_POST);
+        $_SESSION['fname'] = $_POST['fname'];
+        $_SESSION['lname'] = $_POST['lname'];
+        $_SESSION['age'] = $_POST['age'];
+        $_SESSION['gender'] = $_POST['gender'];
+        $_SESSION['phone'] = $_POST['phone'];
+
+        header('location: profile');
+    }
+
     //display the personal information  page
     $view = new Template();
     echo $view->render('views/personalinfo.html');
