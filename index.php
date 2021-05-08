@@ -11,6 +11,9 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+//start a session
+session_start();
+
 //Require autoload file
 require_once('vendor/autoload.php');
 
