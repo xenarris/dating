@@ -16,6 +16,60 @@ Displays a summary screen with a Contact Me button
 <br>
 
 <!-- Content -->
+<div class="border rounded container">
+    <br>
+    <div class="row align-items-start px-4">
+        <table class="table table-bordered col-sm">
+            <tbody>
+            <tr>
+                <td>Name: {{ @SESSION.fname }} {{ @SESSION.lname }}</td>
+            </tr>
+            <tr>
+                <td>Gender: {{ @SESSION.gender }}</td>
+            </tr>
+            <tr>
+                <td>Age: {{ @SESSION.age }}</td>
+            </tr>
+            <tr>
+                <td>Phone: {{ @SESSION.phone }}</td>
+            </tr>
+            <tr>
+                <td>Email: {{ @SESSION.email }}</td>
+            </tr>
+            <tr>
+                <td>State: {{ @SESSION.state }}</td>
+            </tr>
+            <tr>
+                <td>Seeking: {{ @SESSION.seeking }}</td>
+            </tr>
+            <tr>
+                <td>Interests: {{ @SESSION.indoorinterests }}, {{ @SESSION.outdoorinterests }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="col-sm float-right">
+            <div class="text-center">
+                <img class="rounded m-4 text-center" src="images/blankprofile.png"
+                     alt="A generic blank profile icon">
+            </div>
+
+            <div class="h5 px-5">Biography</div>
+            <div class="text-center px-5">
+                {{ @SESSION.bio }}
+            </div>
+            <br>
+        </div>
+
+        <!-- contact me button -->
+        <div class="text-center m-2">
+            <a href=""><button type="button" class="btn btn-primary">Contact me!</button></a>
+        </div>
+    </div>
+
+
+</div>
+
 
 </body>
 </html>

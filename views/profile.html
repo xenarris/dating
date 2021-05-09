@@ -6,12 +6,12 @@ May 8, 2021
 This screen gathers email, state the user is located in, gender interests (seeking) & biography
 -->
 
-<include href="views/header.html" />
+<include href="views/header.html"/>
 
 <body>
 
 <!-- Navbar -->
-<include href="views/navbar.html" />
+<include href="views/navbar.html"/>
 
 <br>
 
@@ -22,9 +22,9 @@ This screen gathers email, state the user is located in, gender interests (seeki
 
 
     <!-- Profile -->
-    <div class="row">
-        <div class="col-sm-6">
-            <form action="#" method="post" class="form-horizontal">
+    <form action="#" method="post" class="form-horizontal">
+        <div class="row">
+            <div class="col-sm-6">
                 <label for="email" class="control-label"><strong>Email</strong></label>
                 <input class="form-control" type="text" name="email" id="email">
                 <br>
@@ -87,26 +87,21 @@ This screen gathers email, state the user is located in, gender interests (seeki
                 <br>
                 <label><input type="radio" name="seeking" id="male" value="male"> Male</label>
                 <label><input type="radio" name="seeking" id="female" value="female"> Female</label>
-            </form>
+            </div>
+
+
+            <div class="col-sm-6">
+                <label for="bio" class="control-label"><strong>Biography</strong></label>
+                <textarea rows="4" class="form-control" name="bio" id="bio"></textarea>
+            </div>
         </div>
-
-        <div class="col-sm-6">
-            <label for="bio" class="control-label"><strong>Biography</strong></label>
-            <textarea rows="4" class="form-control" name="bio" id="bio"></textarea>
-        </div>
-
-    </div>
-
-    <div class="row justify-content-end">
         <!-- next button -->
         <div class="text-end m-2 py-2">
-            <a href="interests"><button type="submit" class="btn btn-primary">Next></button></a>
+            <input type="submit" class="btn btn-primary" value="Next>">
         </div>
-
-    </div>
-
-
-
+    </form>
 </div>
+
+
 </body>
 </html>

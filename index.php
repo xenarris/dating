@@ -66,6 +66,7 @@ $f3 -> route("GET|POST /profile", function () {
     //display the profile page
     $view = new Template();
     echo $view->render('views/profile.html');
+    //var_dump($_POST);
 
 });
 
@@ -88,6 +89,7 @@ $f3 -> route("GET|POST /interests", function () {
 $f3 -> route("GET /profileSummary", function () {
     //display the summary page
     $view = new Template();
+    //print_r($_SESSION);
     echo $view->render('views/profilesummary.html');
 });
 

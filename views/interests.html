@@ -24,57 +24,59 @@ This screen gathers two types of interests - outdoor & indoor
     <div class="">
         <form action="#" method="post" class="form-horizontal">
             <!-- Indoor Interests -->
+            <div>
+
+            </div>
             <label class="control-label py-1"><strong>In-door Interests</strong></label>
             <div class="row">
                 <br>
                 <div class="col-sm">
                     <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests" type="checkbox" id="tv" value="tv">
+                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="tv" value="tv">
                         <label class="form-check-label" for="tv">tv</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests" type="checkbox" id="puzzles"
+                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="puzzles"
                                value="puzzles">
                         <label class="form-check-label" for="puzzles">puzzles</label>
                     </div>
                 </div>
                 <div class="col-sm">
                     <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests" type="checkbox" id="movies"
+                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="movies"
                                value="movies">
                         <label class="form-check-label" for="movies">movies</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests" type="checkbox" id="reading"
+                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="reading"
                                value="reading">
                         <label class="form-check-label" for="reading">reading</label>
                     </div>
                 </div>
                 <div class="col-sm">
                     <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests" type="checkbox" id="cooking"
+                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="cooking"
                                value="cooking">
                         <label class="form-check-label" for="cooking">cooking</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests" type="checkbox" id="playingcards"
+                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="playingcards"
                                value="playingcards">
                         <label class="form-check-label" for="playingcards">playing cards</label>
                     </div>
                 </div>
                 <div class="col-sm">
                     <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests" type="checkbox" id="boardgames"
+                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="boardgames"
                                value="boardgames">
                         <label class="form-check-label" for="boardgames">board games</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests" type="checkbox" id="videogames"
+                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="videogames"
                                value="videogames">
                         <label class="form-check-label" for="videogames">video games</label>
                     </div>
                 </div>
-
             </div>
 
             <!--  Outdoor Interests -->
@@ -83,38 +85,38 @@ This screen gathers two types of interests - outdoor & indoor
                 <br>
                 <div class="col-sm">
                     <div class="form-check">
-                        <input class="form-check-input" name="outdoorinterests" type="checkbox" id="hiking"
+                        <input class="form-check-input" name="outdoorinterests[]" type="checkbox" id="hiking"
                                value="hiking">
                         <label class="form-check-label" for="hiking">hiking</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" name="outdoorinterests" type="checkbox" id="walking"
+                        <input class="form-check-input" name="outdoorinterests[]" type="checkbox" id="walking"
                                value="walking">
                         <label class="form-check-label" for="walking">walking</label>
                     </div>
                 </div>
                 <div class="col-sm">
                     <div class="form-check">
-                        <input class="form-check-input" name="outdoorinterests" type="checkbox" id="biking"
+                        <input class="form-check-input" name="outdoorinterests[]" type="checkbox" id="biking"
                                value="biking">
                         <label class="form-check-label" for="biking">biking</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" name="outdoorinterests" type="checkbox" id="climbing"
+                        <input class="form-check-input" name="outdoorinterest[]s" type="checkbox" id="climbing"
                                value="climbing">
                         <label class="form-check-label" for="climbing">climbing</label>
                     </div>
                 </div>
                 <div class="col-sm">
                     <div class="form-check">
-                        <input class="form-check-input" name="outdoorinterests" type="checkbox" id="swimming"
+                        <input class="form-check-input" name="outdoorinterests[]" type="checkbox" id="swimming"
                                value="swimming">
                         <label class="form-check-label" for="swimming">swimming</label>
                     </div>
                 </div>
                 <div class="col-sm">
                     <div class="form-check">
-                        <input class="form-check-input" name="outdoorinterests" type="checkbox" id="collecting"
+                        <input class="form-check-input" name="outdoorinterests[]" type="checkbox" id="collecting"
                                value="collecting">
                         <label class="form-check-label" for="collecting">collecting</label>
                     </div>
@@ -122,17 +124,11 @@ This screen gathers two types of interests - outdoor & indoor
 
             </div>
 
+            <!-- next button -->
+            <div class="text-end m-2 py-2">
+                <input type="submit" class="btn btn-primary" value="Next>">
+            </div>
         </form>
-    </div>
-
-    <div class="row justify-content-end">
-        <!-- next button -->
-        <div class="text-end m-2 py-2">
-            <a href="profileSummary">
-                <button type="submit" class="btn btn-primary">Next></button>
-            </a>
-        </div>
-
     </div>
 
 </div>
