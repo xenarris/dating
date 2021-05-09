@@ -48,17 +48,37 @@ $f3 -> route("GET|POST /personalInfo", function () {
     //display the personal information  page
     $view = new Template();
     echo $view->render('views/personalinfo.html');
+
 });
 
 // Profile
-$f3 -> route("GET /profile", function () {
+$f3 -> route("GET|POST /profile", function () {
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //var_dump($_POST);
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['state'] = $_POST['state'];
+        $_SESSION['seeking'] = $_POST['seeking'];
+        $_SESSION['bio'] = $_POST['bio'];
+
+        header('location: interests');
+    }
+
     //display the profile page
     $view = new Template();
     echo $view->render('views/profile.html');
+
 });
 
 // Interests
-$f3 -> route("GET /interests", function () {
+$f3 -> route("GET|POST /interests", function () {
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //var_dump($_POST);
+        $_SESSION['indoorinterests'] = implode(", ", $_POST['indoorinterests']);
+        $_SESSION['outdoorinterests'] = implode(", ", $_POST['outdoorinterests']);
+
+        header('location: profileSummary');
+    }
+
     //display the interests page
     $view = new Template();
     echo $view->render('views/interests.html');
