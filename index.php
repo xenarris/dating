@@ -72,12 +72,25 @@ $f3 -> route("GET|POST /profile", function () {
 
 // Interests
 $f3 -> route("GET|POST /interests", function () {
+
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var_dump($_POST);
-        $_SESSION['indoorinterests'] = implode(", ", $_POST['indoorinterests']);
-        $_SESSION['outdoorinterests'] = implode(", ", $_POST['outdoorinterests']);
+        $_SESSION['indoorinterests'] = "No Indoor Interests";
+        $_SESSION['outdoorinterests'] = "No Outdoor Interests";
 
-        header('location: profileSummary');
+        if($_POST['indoorinterests'] != null) {
+            $_SESSION['indoorinterests'] = implode(", ", $_POST['indoorinterests']);
+        }
+        if ($_POST['outdoorinterests'] != null) {
+            $_SESSION['outdoorinterests'] = implode(", ", $_POST['outdoorinterests']);
+        }
+
+        if ($_SESSION['indoorinterests'] != null && $_SESSION['outdoorinterests'] != null) {
+            header('location: profileSummary');
+        }
+
+
+
     }
 
     //display the interests page
