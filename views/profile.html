@@ -26,6 +26,9 @@ This screen gathers email, state the user is located in, gender interests (seeki
         <div class="row">
             <div class="col-sm-6">
                 <label for="email" class="control-label"><strong>Email</strong></label>
+                <check if="{{ isset(@errors['email']) }}">
+                    <span class="err text-danger">{{ @errors['email'] }}</span>
+                </check>
                 <input class="form-control" type="text" name="email" id="email">
                 <br>
                 <label for="state" class="control-label"><strong>State</strong></label>

@@ -38,11 +38,15 @@ function validIndoor($interests) : bool
     $count = 0;
     //list of interests
     $listOfIndoorInterests = getIndoorInterests();
-    while ($count < count($interests)) {
-     if (!(in_array($interests[$count], $listOfIndoorInterests))) {
-         return false;
-     }
+    if (is_array($interests)){
+        while ($count < count($interests)) {
+            if (!(in_array($interests[$count], $listOfIndoorInterests))) {
+                return false;
+            }
+            $count++;
+        }
     }
+
     return true;
 }
 
@@ -69,11 +73,15 @@ function validOutdoor($interests) : bool
     $count = 0;
     //check list of interests
     $listOfOutdoorInterests = getOutdoorInterests();
-    while ($count < count($interests)) {
-        if (!(in_array($interests[$count], $listOfOutdoorInterests))) {
-            return false;
+    if (is_array($interests)){
+        while ($count < count($interests)) {
+            if (!(in_array($interests[$count], $listOfOutdoorInterests))) {
+                return false;
+            }
+            $count++;
         }
     }
+
     return true;
 }
 

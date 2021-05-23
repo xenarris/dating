@@ -40,13 +40,22 @@ $f3->route("GET|POST /personalInfo", function ($f3) {
         $isValidAge = false;
         $isValidPhone = false;
 
-        //check name
-        if (validName($_POST['fname']) && $_POST['lname']) {
+        //check first name
+        if (validName($_POST['fname'])) {
             $_SESSION['fname'] = $_POST['fname'];
-            $_SESSION['lname'] = $_POST['lname'];
+
             $isValidName = true;
-        } else {
-            $f3->set('errors[name]', 'Name can only contain letters');
+        }
+        else {
+            $f3->set('errors[name0]', 'Name must only contain letters');
+        }
+
+        //check last name
+        if (validName($_POST['lname'])) {
+            $_SESSION['lname'] = $_POST['lname'];
+        }
+        else {
+            $f3->set('errors[name1]', 'Name must only contain letters');
         }
         //check age
         if (validAge($_POST['age'])) {
@@ -88,7 +97,8 @@ $f3->route("GET|POST /profile", function ($f3) {
         if (validEmail($_POST['email'])) {
             $_SESSION['email'] = $_POST['email'];
             $isValidEmail = true;
-        } else {
+        }
+        else {
             $f3->set('errors[email]', 'Must be a valid email');
         }
 
@@ -120,12 +130,11 @@ $f3->route("GET|POST /interests", function ($f3) {
     $f3->set('outdoorinterests', getOutdoorInterests());
 
 
-    $_POST['indoorinterests'] = "No Indoor Interests";
-    $_POST['outdoorinterests'] = "No Outdoor Interests";
+    $_SESSION['indoorinterests'] = "No Indoor Interests";
+    $_SESSION['outdoorinterests'] = "No Outdoor Interests";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var_dump($_POST);
-
 
         //check interests
         if (validIndoor($_POST['indoorinterests'])) {
@@ -138,10 +147,7 @@ $f3->route("GET|POST /interests", function ($f3) {
                 $_SESSION['outdoorinterests'] = implode(", ", $_POST['outdoorinterests']);
             }
         }
-
         header('location: profileSummary');
-
-
     }
 
     //display the interests page
