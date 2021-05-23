@@ -104,6 +104,8 @@ $f3->route("GET|POST /personalInfo", function ($f3) {
 
 // Profile
 $f3->route("GET|POST /profile", function ($f3) {
+    $f3->set('states', getStates());
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //make form sticky
         if(!empty($_POST['email'])) {
