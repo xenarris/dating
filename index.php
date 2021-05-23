@@ -36,6 +36,21 @@ $f3->route("GET|POST /personalInfo", function ($f3) {
     //If the form has been submitted, add the data to session
     // and send the user to the next order form
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // make form sticky
+        if(!empty($_POST['fname'])) {
+            $f3->set('fnameSticky',$_POST['fname']);
+        }
+        if(!empty($_POST['lname'])) {
+            $f3->set('lnameSticky',$_POST['lname']);
+        }
+        if(!empty($_POST['age'])) {
+            $f3->set('ageSticky',$_POST['age']);
+        }
+        if(!empty($_POST['phone'])) {
+            $f3->set('phoneSticky',$_POST['phone']);
+        }
+
+        //validation
         $isValidName = false;
         $isValidAge = false;
         $isValidPhone = false;
@@ -81,7 +96,7 @@ $f3->route("GET|POST /personalInfo", function ($f3) {
 
     }
 
-    //display the personal information  page
+    //display the personal information page
     $view = new Template();
     echo $view->render('views/personalinfo.html');
 
@@ -90,7 +105,11 @@ $f3->route("GET|POST /personalInfo", function ($f3) {
 // Profile
 $f3->route("GET|POST /profile", function ($f3) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //var_dump($_POST);
+        //make form sticky
+        if(!empty($_POST['email'])) {
+            $f3->set('emailSticky',$_POST['email']);
+        }
+
         $isValidEmail = false;
 
         //check email

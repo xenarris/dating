@@ -29,7 +29,7 @@ This screen gathers email, state the user is located in, gender interests (seeki
                 <check if="{{ isset(@errors['email']) }}">
                     <span class="err text-danger">{{ @errors['email'] }}</span>
                 </check>
-                <input class="form-control" type="text" name="email" id="email">
+                <input class="form-control" type="text" name="email" id="email" value="{{ @emailSticky }}">
                 <br>
                 <label for="state" class="control-label"><strong>State</strong></label>
                 <select class="form-control" name="state" id="state">

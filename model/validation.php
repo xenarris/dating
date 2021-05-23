@@ -81,7 +81,6 @@ function validOutdoor($interests) : bool
             $count++;
         }
     }
-
     return true;
 }
 
@@ -95,9 +94,4 @@ function getOutdoorInterests(): array
         "walking" => "walking",
         "climbing" => "climbing"
     );
-}
-
-function validation($name, $age, $phone, $email) : bool
-{
-    return $name && $age && $phone && $email;
 }

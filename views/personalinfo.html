@@ -29,19 +29,19 @@ This screen gathers name, age, gender & phone number.
                 <check if="{{ isset(@errors['name0']) }}">
                     <span class="err text-danger">{{ @errors['name0'] }}</span>
                 </check>
-                <input class="form-control" type="text" name="fname" id="fname">
+                <input class="form-control" type="text" name="fname" id="fname" value="{{ @fnameSticky }}">
                 <br>
                 <label for="lname" class="control-label"><strong>Last Name</strong></label>
                 <check if="{{ isset(@errors['name1']) }}">
                     <span class="err text-danger">{{ @errors['name1'] }}</span>
                 </check>
-                <input class="form-control" type="text" name="lname" id="lname">
+                <input class="form-control" type="text" name="lname" id="lname" value="{{ @lnameSticky }}">
                 <br>
                 <label for="age" class="control-label"><strong>Age</strong></label>
                 <check if="{{ isset(@errors['age']) }}">
                     <span class="err text-danger">{{ @errors['age'] }}</span>
                 </check>
-                <input class="form-control" type="text" name="age" id="age">
+                <input class="form-control" type="text" name="age" id="age" value="{{ @ageSticky }}">
                 <br>
                 <label class="control-label"><strong>Gender</strong></label>
                 <br>
@@ -52,7 +52,7 @@ This screen gathers name, age, gender & phone number.
                 <check if="{{ isset(@errors['phone']) }}">
                     <span class="err text-danger">{{ @errors['phone'] }}</span>
                 </check>
-                <input class="form-control" type="text" name="phone" id="phone">
+                <input class="form-control" type="text" name="phone" id="phone" value="{{ @phoneSticky }}">
             </div>
             <div class="col-sm-4" role="alert">
                 <br>
