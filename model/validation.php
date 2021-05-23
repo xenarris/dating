@@ -31,8 +31,7 @@ function validEmail($email) : bool
 //checks indoor interests
 function validIndoor($interests) : bool
 {
-    //check if empty
-    if ($interests !== null) {
+    if ($interests == "No Indoor Interests") {
         return true;
     }
 
@@ -64,8 +63,7 @@ function getIndoorInterests(): array
 //checks outdoor interests
 function validOutdoor($interests) : bool
 {
-    //check if empty
-    if ($interests !== null) {
+    if ($interests == "No Outdoor Interests") {
         return true;
     }
     $count = 0;
@@ -89,4 +87,9 @@ function getOutdoorInterests(): array
         "walking" => "walking",
         "climbing" => "climbing"
     );
+}
+
+function validation($name, $age, $phone, $email) : bool
+{
+    return $name && $age && $phone && $email;
 }
