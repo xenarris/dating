@@ -74,13 +74,13 @@ $f3 -> route("GET|POST /profile", function () {
 // Interests
 $f3 -> route("GET|POST /interests", function ($f3) {
 
-    $arrayOfIndoorInterests = array_chunk(getIndoorInterests(), 4);
-    $f3->set('indoorinterests0', $arrayOfIndoorInterests[0]);
-    $f3->set('indoorinterests1', $arrayOfIndoorInterests[1]);
+    //Indoor Interests
+    $f3->set('indoorinterests', getIndoorInterests());
 
-/*    foreach ($arrayOfIndoorInterests as $arrayInterest) {
-        $f3->set('indoorinterests', $arrayInterest);
-    }*/
+    //Outdoor Interests
+    $f3->set('outdoorinterests', getOutdoorInterests());
+
+
 
 
 
