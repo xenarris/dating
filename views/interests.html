@@ -28,56 +28,26 @@ This screen gathers two types of interests - outdoor & indoor
 
             </div>
             <label class="control-label py-1"><strong>In-door Interests</strong></label>
+
             <div class="row">
-                <br>
-                <div class="col-sm">
-                    <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="tv" value="tv">
-                        <label class="form-check-label" for="tv">tv</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="puzzles"
-                               value="puzzles">
-                        <label class="form-check-label" for="puzzles">puzzles</label>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="movies"
-                               value="movies">
-                        <label class="form-check-label" for="movies">movies</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="reading"
-                               value="reading">
-                        <label class="form-check-label" for="reading">reading</label>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="cooking"
-                               value="cooking">
-                        <label class="form-check-label" for="cooking">cooking</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="playingcards"
-                               value="playingcards">
-                        <label class="form-check-label" for="playingcards">playing cards</label>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="boardgames"
-                               value="boardgames">
-                        <label class="form-check-label" for="boardgames">board games</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" name="indoorinterests[]" type="checkbox" id="videogames"
-                               value="videogames">
-                        <label class="form-check-label" for="videogames">video games</label>
-                    </div>
-                </div>
+                <repeat group="{{ @indoorinterests0 }}" value="{{ @indoorinterest0 }}">
+                    <label class="form-check-label col-sm">
+                        <input type="checkbox" name="indoorinterests0[]"
+                               value="{{ @indoorinterest }}" class="form-check-input">
+                        {{ @indoorinterest0 }}</label><br>
+                </repeat>
             </div>
+
+            <div class="row">
+                <repeat group="{{ @indoorinterests1 }}" value="{{ @indoorinterest1 }}">
+                    <label class="form-check-label col-sm">
+                        <input type="checkbox" name="indoorinterests1[]"
+                               value="{{ @indoorinterest }}" class="form-check-input">
+                        {{ @indoorinterest1 }}</label><br>
+                </repeat>
+
+            </div>
+
 
             <!--  Outdoor Interests -->
             <label class="control-label py-1"><strong>Out-door Interests</strong></label>

@@ -16,6 +16,7 @@ session_start();
 
 //Require autoload file
 require_once('vendor/autoload.php');
+require_once("model/validation.php");
 
 //Create an instance of the base class
 $f3 = Base::instance();
@@ -71,7 +72,17 @@ $f3 -> route("GET|POST /profile", function () {
 });
 
 // Interests
-$f3 -> route("GET|POST /interests", function () {
+$f3 -> route("GET|POST /interests", function ($f3) {
+
+    $arrayOfIndoorInterests = array_chunk(getIndoorInterests(), 4);
+    $f3->set('indoorinterests0', $arrayOfIndoorInterests[0]);
+    $f3->set('indoorinterests1', $arrayOfIndoorInterests[1]);
+
+/*    foreach ($arrayOfIndoorInterests as $arrayInterest) {
+        $f3->set('indoorinterests', $arrayInterest);
+    }*/
+
+
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var_dump($_POST);
