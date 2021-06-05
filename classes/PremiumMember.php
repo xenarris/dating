@@ -1,6 +1,6 @@
 <?php
 
-class PremiumMember
+class PremiumMember extends Member
 {
     private $_inDoorInterests;
     private $_outDoorInterests;
@@ -12,14 +12,17 @@ class PremiumMember
      */
     public function __construct($_inDoorInterests, $_outDoorInterests)
     {
+        parent::__construct($this->getFname(), $this->getLname(), $this->getAge(),
+            $this->getGender(), $this->getPhone());
         $this->_inDoorInterests = $_inDoorInterests;
         $this->_outDoorInterests = $_outDoorInterests;
     }
 
     /**
-     * @return mixed
+     * Grabs an array of indoor interests
+     * @return Array the person's indoor interests
      */
-    public function getInDoorInterests()
+    public function getInDoorInterests() : Array
     {
         return $this->_inDoorInterests;
     }
@@ -33,9 +36,10 @@ class PremiumMember
     }
 
     /**
-     * @return mixed
+     * Grabs an array of outdoor interests
+     * @return Array the person's outdoor interests
      */
-    public function getOutDoorInterests()
+    public function getOutDoorInterests() : Array
     {
         return $this->_outDoorInterests;
     }
