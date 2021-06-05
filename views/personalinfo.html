@@ -53,6 +53,11 @@ This screen gathers name, age, gender & phone number.
                     <span class="err text-danger">{{ @errors['phone'] }}</span>
                 </check>
                 <input class="form-control" type="text" name="phone" id="phone" value="{{ @phoneSticky }}">
+                <br>
+                <label for="membership"><strong>Premium Membership</strong></label>
+                <br>
+                <input class="form-checkbox" type="checkbox" name="membership" id="membership">
+                <label for="membership" class="control-label">Sign me up for a Premium Account!</label>
             </div>
             <div class="col-sm-4" role="alert">
                 <br>
