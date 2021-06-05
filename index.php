@@ -11,15 +11,17 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-//start a session
-session_start();
-
 //Require autoload file
 require_once('vendor/autoload.php');
 require_once("model/validation.php");
+//TODO require controller.php
+
+//start a session
+session_start();
 
 //Create an instance of the base class
 $f3 = Base::instance();
+//TODO instantiate controller
 
 //Define a default route
 $f3->route('GET /', function () {
@@ -89,11 +91,11 @@ $f3->route("GET|POST /personalInfo", function ($f3) {
 
         //var_dump($_POST);
         $_SESSION['gender'] = $_POST['gender'];
+        $_SESSION['membership'] = $_POST['membership'];
 
         if ($isValidPhone && $isValidAge && $isValidName) {
             header('location: profile');
         }
-
     }
 
     //display the personal information page
@@ -105,6 +107,7 @@ $f3->route("GET|POST /personalInfo", function ($f3) {
 // Profile
 $f3->route("GET|POST /profile", function ($f3) {
     $f3->set('states', getStates());
+    var_dump($_SESSION);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //make form sticky
@@ -129,7 +132,14 @@ $f3->route("GET|POST /profile", function ($f3) {
         $_SESSION['bio'] = $_POST['bio'];
 
         if ($isValidEmail) {
-            header('location: interests');
+            if ($_SESSION['membership'] === "on"){
+                header('location: interests');
+            } else {
+                $_SESSION['indoorinterests'] = "Premium Feature";
+                $_SESSION['outdoorinterests'] = "Join to access!";
+                header('location: profileSummary');
+            }
+
         }
 
     }
