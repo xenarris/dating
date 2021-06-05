@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Member of the dating website
+ * @author Jean-Kenneth Antonio
+ * @version 0.001
+ */
 class Member
 {
     private $_fname;
@@ -112,6 +117,7 @@ class Member
     }
 
     /**
+     * Sets the first name of the member
      * @param mixed $fname
      */
     public function setFname($fname): void
@@ -120,6 +126,7 @@ class Member
     }
 
     /**
+     * Sets the last name of the member
      * @param mixed $lname
      */
     public function setLname($lname): void
@@ -128,6 +135,7 @@ class Member
     }
 
     /**
+     * Sets the age of the member
      * @param mixed $age
      */
     public function setAge($age): void
@@ -136,6 +144,7 @@ class Member
     }
 
     /**
+     * Sets the gender of the member
      * @param mixed $gender
      */
     public function setGender($gender): void
@@ -144,6 +153,7 @@ class Member
     }
 
     /**
+     * Sets the phone number of the member
      * @param mixed $phone
      */
     public function setPhone($phone): void
@@ -152,6 +162,7 @@ class Member
     }
 
     /**
+     * Sets the email of the member
      * @param mixed $email
      */
     public function setEmail($email): void
@@ -160,6 +171,7 @@ class Member
     }
 
     /**
+     * Sets the state location of the member
      * @param mixed $state
      */
     public function setState($state): void
@@ -168,6 +180,7 @@ class Member
     }
 
     /**
+     * Sets the seeked gender of the member
      * @param mixed $seeking
      */
     public function setSeeking($seeking): void
@@ -176,13 +189,12 @@ class Member
     }
 
     /**
+     * Sets the bio of the member
      * @param mixed $bio
      */
     public function setBio($bio): void
     {
         $this->_bio = $bio;
     }
-
-
 
 }

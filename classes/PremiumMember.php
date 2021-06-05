@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * PremiumMember of the dating website
+ * @author Jean-Kenneth Antonio
+ * @version 0.001
+ */
 class PremiumMember extends Member
 {
     private $_inDoorInterests;
@@ -10,10 +15,9 @@ class PremiumMember extends Member
      * @param $_inDoorInterests
      * @param $_outDoorInterests
      */
-    public function __construct($_inDoorInterests="No Indoor Interests", $_outDoorInterests="No Outdoor Interests")
+    public function __construct($_inDoorInterests=array("No Indoor Interests"), $_outDoorInterests=array("No Outdoor Interests"))
     {
-        parent::__construct($this->getFname(), $this->getLname(), $this->getAge(),
-            $this->getGender(), $this->getPhone());
+        parent::__construct();
         $this->_inDoorInterests = $_inDoorInterests;
         $this->_outDoorInterests = $_outDoorInterests;
     }
@@ -28,6 +32,7 @@ class PremiumMember extends Member
     }
 
     /**
+     * Sets the indoor interests of the person
      * @param mixed $inDoorInterests
      */
     public function setInDoorInterests($inDoorInterests): void
@@ -45,6 +50,7 @@ class PremiumMember extends Member
     }
 
     /**
+     * sets the outdoor interests of the person
      * @param mixed $outDoorInterests
      */
     public function setOutDoorInterests($outDoorInterests): void

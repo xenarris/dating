@@ -13,9 +13,6 @@ error_reporting(E_ALL);
 
 //Require autoload file
 require_once('vendor/autoload.php');
-require_once("model/validation.php");
-require_once("controller/controller.php");
-//TODO require controller.php
 
 //start a session
 session_start();
@@ -23,7 +20,6 @@ session_start();
 //instantiate classes
 $f3 = Base::instance();
 $con = new Controller($f3);
-//TODO instantiate controller
 
 //Define a default route
 $f3->route('GET /', function () {
@@ -36,17 +32,17 @@ $f3->route('GET /', function () {
 // Create a profile Pages
 
 // Personal Information
-$f3->route("GET|POST /personalInfo", function ($f3) {
+$f3->route("GET|POST /personalInfo", function () {
     $GLOBALS['con']->personalInfo();
 });
 
 // Profile
-$f3->route("GET|POST /profile", function ($f3) {
+$f3->route("GET|POST /profile", function () {
     $GLOBALS['con']->profile();
 });
 
 // Interests
-$f3->route("GET|POST /interests", function ($f3) {
+$f3->route("GET|POST /interests", function () {
     $GLOBALS['con']->interests();
 });
 

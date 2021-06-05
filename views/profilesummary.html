@@ -22,29 +22,33 @@ Displays a summary screen with a Contact Me button
         <table class="table table-bordered col-sm">
             <tbody>
             <tr>
-                <td>Name: {{ @SESSION.fname }} {{ @SESSION.lname }}</td>
+                <td>Name: {{ @SESSION.profileMember->getFname() }} {{ @SESSION.profileMember->getLname() }}</td>
             </tr>
             <tr>
-                <td>Gender: {{ @SESSION.gender }}</td>
+                <td>Gender: {{ @SESSION.profileMember->getGender() }}</td>
             </tr>
             <tr>
-                <td>Age: {{ @SESSION.age }}</td>
+                <td>Age: {{ @SESSION.profileMember->getAge() }}</td>
             </tr>
             <tr>
-                <td>Phone: {{ @SESSION.phone }}</td>
+                <td>Phone: {{ @SESSION.profileMember->getPhone() }}</td>
             </tr>
             <tr>
-                <td>Email: {{ @SESSION.email }}</td>
+                <td>Email: {{ @SESSION.profileMember->getEmail() }}</td>
             </tr>
             <tr>
-                <td>State: {{ @SESSION.state }}</td>
+                <td>State: {{ @SESSION.profileMember->getState() }}</td>
             </tr>
             <tr>
-                <td>Seeking: {{ @SESSION.seeking }}</td>
+                <td>Seeking: {{ @SESSION.profileMember->getSeeking() }}</td>
             </tr>
-            <tr>
-                <td>Interests: {{ @SESSION.indoorinterests }}, {{ @SESSION.outdoorinterests }}</td>
-            </tr>
+            <check if="{{ get_class(@SESSION.profileMember) == 'PremiumMember' }}">
+                <tr>
+                    <td>Interests: {{ implode(", ", @SESSION.profileMember->getInDoorInterests()) }},
+                        {{ implode(", ", @SESSION.profileMember->getOutDoorInterests())  }}</td>
+                </tr>
+            </check>
+
             </tbody>
         </table>
 
