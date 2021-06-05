@@ -10,7 +10,7 @@ class PremiumMember extends Member
      * @param $_inDoorInterests
      * @param $_outDoorInterests
      */
-    public function __construct($_inDoorInterests, $_outDoorInterests)
+    public function __construct($_inDoorInterests="No Indoor Interests", $_outDoorInterests="No Outdoor Interests")
     {
         parent::__construct($this->getFname(), $this->getLname(), $this->getAge(),
             $this->getGender(), $this->getPhone());

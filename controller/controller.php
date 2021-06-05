@@ -26,12 +26,7 @@ class Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['gender'] = $_POST['gender'];
             $_SESSION['membership'] = $_POST['membership'];
-            //instantiate the required class
-            if ($_SESSION['membership'] === "on") {
-                $_SESSION['profileMember'] = new PremiumMember();
-            } else {
-                $_SESSION['profileMember'] = new member();
-            }
+
 
             // make form sticky
             if(!empty($_POST['fname'])) {
@@ -56,7 +51,6 @@ class Controller
             if (validName($_POST['fname'])) {
                 $_SESSION['fname'] = $_POST['fname'];
 
-                $this->_f3->setFname($_POST['fname']);
 
                 $isValidName = true;
             } else {
@@ -67,7 +61,6 @@ class Controller
             if (validName($_POST['lname'])) {
                 $_SESSION['lname'] = $_POST['lname'];
 
-                $this->_f3->setLname($_POST['lname']);
             } else {
                 $this->_f3->set('errors[name1]', 'Name must only contain letters');
             }
@@ -75,7 +68,6 @@ class Controller
             //check age
             if (validAge($_POST['age'])) {
                 $_SESSION['age'] = $_POST['age'];
-                $this->_f3->setAge($_POST['age']);
                 $isValidAge = true;
             } else {
                 $this->_f3->set('errors[age]', 'Must be 18+! Max: 118');
@@ -84,7 +76,6 @@ class Controller
             //check phone
             if (validPhone($_POST['phone'])) {
                 $_SESSION['phone'] = $_POST['phone'];
-                $this->_f3->setPhone($_POST['phone']);
                 $isValidPhone = true;
             } else {
                 $this->_f3->set('errors[phone]', 'Phone number must only contain numbers and between 10-13 digits long');
@@ -93,6 +84,24 @@ class Controller
             //var_dump($_POST);
 
             if ($isValidPhone && $isValidAge && $isValidName) {
+                //instantiate class
+                //instantiate the required class
+                if ($_SESSION['membership'] === "on") {
+                    $_SESSION['profileMember'] = new PremiumMember();
+                } else {
+                    $_SESSION['profileMember'] = new Member();
+                }
+
+                //set variables
+                $_SESSION['profileMember']->setFname($_POST['fname']);
+                $_SESSION['profileMember']->setLname($_POST['lname']);
+                $_SESSION['profileMember']->setAge($_POST['age']);
+                $_SESSION['profileMember']->setPhone($_POST['phone']);
+                if ($_POST['gender'] !== null){
+                    $_SESSION['profileMember']->setGender($_POST['gender']);
+                }
+
+                //move to next page
                 header('location: profile');
             }
         }
@@ -118,7 +127,7 @@ class Controller
             //check email
             if (validEmail($_POST['email'])) {
                 $_SESSION['email'] = $_POST['email'];
-                $this->_f3->setEmail($_POST['email']);
+                $_SESSION['profileMember']->setEmail($_POST['email']);
                 $isValidEmail = true;
             }
             else {
@@ -129,9 +138,9 @@ class Controller
             $_SESSION['seeking'] = $_POST['seeking'];
             $_SESSION['bio'] = $_POST['bio'];
 
-            $this->_f3->setState($_POST['state']);
-            $this->_f3->setSeeking($_POST['seeking']);
-            $this->_f3->setBio($_POST['bio']);
+            $_SESSION['profileMember']->setState($_POST['state']);
+            $_SESSION['profileMember']->setSeeking($_POST['seeking']);
+            $_SESSION['profileMember']->setBio($_POST['bio']);
 
             if ($isValidEmail) {
                 if ($_SESSION['membership'] === "on"){
@@ -150,6 +159,51 @@ class Controller
         $view = new Template();
         echo $view->render('views/profile.html');
         //var_dump($_POST);
+    }
+
+    function interests()
+    {
+
+        //Indoor Interests
+        $this->_f3->set('indoorinterests', getIndoorInterests());
+
+        //Outdoor Interests
+        $this->_f3->set('outdoorinterests', getOutdoorInterests());
+
+
+//        $_SESSION['indoorinterests'] = "No Indoor Interests";
+//        $_SESSION['outdoorinterests'] = "No Outdoor Interests";
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //var_dump($_POST);
+
+            //check interests
+            if (validIndoor($_POST['indoorinterests'])) {
+                if (is_array($_POST['indoorinterests'])) {
+                    $_SESSION['profileMember']->setInDoorInterests($_SESSION['indoorinterests']);
+                    $_SESSION['indoorinterests'] = implode(", ", $_POST['indoorinterests']);
+                }
+            }
+            if (validOutdoor($_POST['outdoorinterests'])) {
+                if (is_array($_POST['outdoorinterests'])) {
+                    $_SESSION['profileMember']->setOutDoorInterests($_SESSION['outdoorinterests']);
+                    $_SESSION['outdoorinterests'] = implode(", ", $_POST['outdoorinterests']);
+                }
+            }
+            header('location: profileSummary');
+        }
+
+        //display the interests page
+        $view = new Template();
+        echo $view->render('views/interests.html');
+    }
+
+    function summary()
+    {
+        //display the summary page
+        $view = new Template();
+        //print_r($_SESSION);
+        echo $view->render('views/profilesummary.html');
     }
 
 

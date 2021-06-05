@@ -21,7 +21,7 @@ class Member
      * @param $_gender
      * @param $_phone
      */
-    public function __construct($_fname, $_lname, $_age, $_gender, $_phone)
+    public function __construct($_fname="Unknown", $_lname="Unknown", $_age=-1, $_gender="Unknown", $_phone="Unknown")
     {
         $this->_fname = $_fname;
         $this->_lname = $_lname;

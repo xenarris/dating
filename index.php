@@ -14,6 +14,7 @@ error_reporting(E_ALL);
 //Require autoload file
 require_once('vendor/autoload.php');
 require_once("model/validation.php");
+require_once("controller/controller.php");
 //TODO require controller.php
 
 //start a session
@@ -46,45 +47,12 @@ $f3->route("GET|POST /profile", function ($f3) {
 
 // Interests
 $f3->route("GET|POST /interests", function ($f3) {
-
-    //Indoor Interests
-    $f3->set('indoorinterests', getIndoorInterests());
-
-    //Outdoor Interests
-    $f3->set('outdoorinterests', getOutdoorInterests());
-
-
-    $_SESSION['indoorinterests'] = "No Indoor Interests";
-    $_SESSION['outdoorinterests'] = "No Outdoor Interests";
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //var_dump($_POST);
-
-        //check interests
-        if (validIndoor($_POST['indoorinterests'])) {
-            if (is_array($_POST['indoorinterests'])) {
-                $_SESSION['indoorinterests'] = implode(", ", $_POST['indoorinterests']);
-            }
-        }
-        if (validOutdoor($_POST['outdoorinterests'])) {
-            if (is_array($_POST['outdoorinterests'])) {
-                $_SESSION['outdoorinterests'] = implode(", ", $_POST['outdoorinterests']);
-            }
-        }
-        header('location: profileSummary');
-    }
-
-    //display the interests page
-    $view = new Template();
-    echo $view->render('views/interests.html');
+    $GLOBALS['con']->interests();
 });
 
 // Profile summary
 $f3->route("GET /profileSummary", function () {
-    //display the summary page
-    $view = new Template();
-    //print_r($_SESSION);
-    echo $view->render('views/profilesummary.html');
+    $GLOBALS['con']->summary();
 });
 
 //Run fat free
