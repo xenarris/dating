@@ -14,7 +14,7 @@ class Validation
      * @param $name mixed the name to be checked
      * @return bool true if all letters
      */
-    static function validName($name): bool
+    public static function validName($name): bool
     {
         return ctype_alpha($name);
 
@@ -25,7 +25,7 @@ class Validation
      * @param $age mixed the age to be checked
      * @return bool true if any number between 18-118 inclusive
      */
-    static function validAge($age) : bool
+    public static function validAge($age) : bool
     {
         return ctype_digit($age) && $age <= 118 && $age >= 18;
     }
@@ -35,7 +35,7 @@ class Validation
      * @param $phone mixed the number to be checked
      * @return bool true if all numbers and length is 10-13 digits
      */
-    static function validPhone($phone) : bool
+    public static function validPhone($phone) : bool
     {
         return ctype_digit($phone) && strlen($phone) <= 13 && strlen($phone) >= 10;
     }
@@ -47,7 +47,7 @@ class Validation
      * @param $email mixed the email to be checked
      * @return bool true if contains @ and .
      */
-    static function validEmail($email) : bool
+    public static function validEmail($email) : bool
     {
         if (strpos($email, "@") !== false && strpos($email, ".")) {
             return true;
@@ -60,7 +60,7 @@ class Validation
      * @param $interests mixed the array of interests to be checked
      * @return bool true if all is contained in the array of indoor interests
      */
-    static function validIndoor($interests) : bool
+    public static function validIndoor($interests) : bool
     {
         if ($interests == "No Indoor Interests") {
             return true;
@@ -87,7 +87,7 @@ class Validation
      * @param $interests mixed the array to be checked
      * @return bool true if it is in the list of outdoor interests
      */
-    static function validOutdoor($interests) : bool
+    public static function validOutdoor($interests) : bool
     {
         if ($interests == "No Outdoor Interests") {
             return true;
@@ -110,7 +110,7 @@ class Validation
      * contains and grabs an array of indoor interests
      * @return string[] an array of indoor interests
      */
-    static function getIndoorInterests(): array
+    public static function getIndoorInterests(): array
     {
         return array(
             "tv" => "tv",
@@ -128,7 +128,7 @@ class Validation
      * contain and grabs an array of outdoor interests
      * @return string[] an array of outdoor interests
      */
-    static function getOutdoorInterests(): array
+    public static function getOutdoorInterests(): array
     {
         return array(
             "hiking" => "hiking",
@@ -144,7 +144,7 @@ class Validation
      * contains and grabs an array of US states
      * @return string[] an array of US states
      */
-    static function getStates() : array
+    public static function getStates() : array
     {
         return array(
             "Alabama",
